@@ -32,7 +32,7 @@ const blogs = [
 
 const Blog = () => {
   return (
-    <section className="py-15 bg-gray-50 dark:bg-[#0b0b0f]">
+    <>
       <Container>
         {/* Section Header */}
         <div className="flex flex-wrap justify-between md:items-end gap-6">
@@ -69,7 +69,7 @@ const Blog = () => {
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8">
           {blogs.map((blog) => (
             <article 
               key={blog.id} 
@@ -124,7 +124,7 @@ const Blog = () => {
           ))}
         </div>
       </Container>
-    </section>
+    </>
   );
 };
 

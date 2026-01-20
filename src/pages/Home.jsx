@@ -1,9 +1,11 @@
 import Blog from "../sections/Blog";
+import Categories from "../sections/Categories";
+import CTAHighlights from "../sections/CTAHighlights";
+import Features from "../sections/Features";
 import Hero from "../sections/Hore";
 import Newsletter from "../sections/Newsletter";
 import OurService from "../sections/OurService";
-import Pricing from "../sections/Pricing";
-import TeamMebers from "../sections/TeamMebers";
+import Statistics from "../sections/Statistics";
 import Testimonials from "../sections/Testimonals";
 const Home = () => {
   return (
@@ -17,13 +19,19 @@ const Home = () => {
         <OurService />
       </section>
         <section>
-        <Blog />
+        <Categories />
         </section>
-      <section>
-        <TeamMebers />  
-      </section>
-      <section>
-        <Pricing />
+        <section>
+        <Statistics />
+        </section>
+        <section>
+        <CTAHighlights />
+        </section>
+        <section>
+        <Features />
+        </section>
+        <section>
+        <Blog />
         </section> 
         <section>
         <Newsletter />

@@ -24,7 +24,7 @@ const OurService = () => {
 
               w-fit px-2 py-1 rounded-full
 
-              text-sm font-medium"
+              text-sm tracking-widest font-medium"
           >
             our services
           </p>

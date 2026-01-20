@@ -13,7 +13,6 @@ import hero1 from "../assets/hero-removebg-preview.png";
 import hero2 from "../assets/one-removebg-preview.png";
 import hero3 from "../assets/two-removebg-preview.png";
 import Container from "../shared/Container";
-// import SavingPlanCard from "./SavingPlanCard";
 
 const slides = [
   {
@@ -39,109 +38,88 @@ const slides = [
   {
     id: 3,
     image: hero3,
-    badge: "Investment Insights",
-    titleMain: "Master Your ",
-    titleHighlight: "Investment Portfolio",
-    suffix: "",
+    badge: "Retirement & Savings",
+    titleMain: "Secure ",
+    titleHighlight: "Retirement Life",
+    suffix: " with Ease",
     description:
-      "Analyze market trends and manage your diversified portfolio in one dashboard. Real-time data for smarter financial decisions.",
+      "Automate your savings and secure your post-work life. Track every penny with our advanced growth engine designed for long-term stability.",
   },
 ];
 
 const Hero = () => {
   return (
-    <div className="bg-primary/10 py-10">
+    <div className="bg-primary/5 dark:bg-[#0b0b0f] py-10 lg:py-20 transition-colors duration-500">
       <Container>
         <Swiper
           modules={[Autoplay, EffectFade]}
           slidesPerView={1}
           effect={"fade"}
           fadeEffect={{ crossFade: true }}
-        loop={true}
-        speed={1500}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-      >
-        {slides.map((s) => (
-          <SwiperSlide key={s.id}>
-            <div className="lg:flex items-center justify-center md:justify-normal overflow-hidden space-y-12 lg:space-y-0">
-              {/* Slide Content */}
-
-              <div className="relative z-20 w-full">
-                <Container className="space-y-6 text-center">
+          loop={true}
+          speed={1500}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+        >
+          {slides.map((s) => (
+            <SwiperSlide key={s.id}>
+              <div className="flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+                {/* Slide Content */}
+                <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
                   <p
-                    className="inline-block
-
-              bg-[#eeedfc] dark:bg-[#1e1d2a]
-
-              border border-primary
-
-              text-gray-700 dark:text-gray-300
-
-              w-fit px-4 py-2 rounded-full
-
-              text-sm font-medium
-
-            "
+                    className="inline-block bg-primary/10 dark:bg-primary/20 border border-primary/30 
+                    text-primary dark:text-primary-light px-4 py-2 rounded-full 
+                    text-sm font-semibold tracking-wide"
                   >
-                    {s.badge} {s.suffix}
+                    {s.badge}
                   </p>
 
-                  <h1 className="text-3xl md:text-7xl font-bold leading-[1.1]">
-                    {s.titleMain}{" "}
-                    <span className="text-primary block lg:inline">
+                  <h1 className="text-4xl md:text-7xl font-bold leading-[1.1] text-gray-900 dark:text-white">
+                    {s.titleMain}
+                    <span className="text-primary">
                       {s.titleHighlight}
                     </span>
+                    {s.suffix}
                   </h1>
 
-                  <p className="max-w-2xl mx-auto md:text-xl opacity-90 leading-relaxed">
+                  <p className="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
                     {s.description}
                   </p>
 
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <span className="group">
-                      <Link
-                        to="/"
-                        className="
-
-                    btn bg-black text-white hover:bg-primary border-0 duration-500
-
-                    dark:bg-primary dark:text-white dark:hover:bg-black
-
-                  "
-                      >
-                        Get Started
-                        <FaArrowRightLong className="translate-x-0 group-hover:translate-x-2 duration-500" />
-                      </Link>
-                    </span>
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <Link
+                      to="/"
+                      className="btn bg-black text-white hover:bg-primary border-0 duration-500 
+                      dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black 
+                      flex items-center gap-2 group"
+                    >
+                      Get Started
+                      <FaArrowRightLong className="translate-x-0 group-hover:translate-x-2 duration-500" />
+                    </Link>
 
                     <button
-                      className="
-
-                  btn btn-outline
-
-                  hover:bg-black hover:text-white
-
-                  duration-500 font-semibold
-
-                  border-gray-300 text-gray-700
-
-                  dark:border-gray-600 dark:text-gray-300
-
-                  dark:hover:bg-white dark:hover:text-black
-
-                "
+                      className="btn btn-outline border-gray-300 text-gray-700 hover:bg-black hover:text-white 
+                      dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white dark:hover:text-black 
+                      duration-500 font-semibold"
                     >
-                      <MdSlowMotionVideo size={20} /> Watch Track Now
+                      <MdSlowMotionVideo size={22} className="mr-2" /> Watch
+                      Demo
                     </button>
                   </div>
-                </Container>
+                </div>
+
+                {/* Slide Image */}
+                <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                  <img
+                    className="max-h-[400px] md:max-h-[550px] object-contain"
+                    src={s.image}
+                    alt={s.titleMain}
+                  />
+                </div>
               </div>
-              <img className="mx-auto" src={s.image} alt={s.titleMain} placeholder="blur" />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Container>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Container>
     </div>
   );
 };

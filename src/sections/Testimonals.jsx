@@ -52,12 +52,24 @@ const reviews = [
 ];
 const Testimonials = () => {
   return (
-    <Container>
+    <Container className="mb-16">
       {/* Header */}
       <div className="text-center space-y-2">
-        <span className="uppercase shadow px-2 py-1 rounded text-xs font-medium text-gray-700 dark:text-gray-300">
-          feedback
-        </span>
+        <p
+            className="inline-block
+
+              bg-[#eeedfc] dark:bg-[#1e1d2a]
+
+              border border-primary
+
+              text-gray-700 dark:text-gray-300
+
+              w-fit px-2 py-1 rounded-full
+
+              text-sm tracking-widest font-medium"
+          >
+          Feedback from Clients
+        </p>
         <h2 className="text-2xl mt-4 md:text-4xl font-bold text-gray-900 dark:text-white">
           What Our Clients Say
         </h2>

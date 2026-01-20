@@ -15,17 +15,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
   
 
+.testimonial-shadow {
+  transition: box-shadow 0.3s ease; 
+  box-shadow: 2px 2px 5px rgba(79, 15, 209, 0.2); 
+}
+
+ .testimonial-shadow:hover {
+  box-shadow: 4px 8px 20px rgba(79, 15, 209, 0.5);
+}
 @layer components {
   .icons-animation {
     @apply text-primary group-hover:[animation:spin_0.5s_linear_1]
-  }
-  .testimonial-shadow {
-    transition: box-shadow 0.3s ease; 
-    box-shadow: 2px 2px 5px rgba(79, 15, 209, 0.2); 
-  }
-  
-  .testimonial-shadow:hover {
-    box-shadow: 4px 8px 20px rgba(79, 15, 209, 0.5);
   }
   .btn-primary{
     @apply bg-primary text-white border-none hover:bg-primary/90
