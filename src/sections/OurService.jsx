@@ -13,18 +13,27 @@ const OurService = () => {
     <>
       <Container>
         <div className="text-center">
-          <span
-            className="uppercase shadow px-2 py-1 rounded text-xs font-medium 
-            text-gray-700 dark:text-gray-300"
+          <p
+            className="inline-block
+
+              bg-[#eeedfc] dark:bg-[#1e1d2a]
+
+              border border-primary
+
+              text-gray-700 dark:text-gray-300
+
+              w-fit px-2 py-1 rounded-full
+
+              text-sm font-medium"
           >
             our services
-          </span>
+          </p>
 
           <h2
             className="text-2xl mt-4 md:text-4xl font-bold max-w-[20ch] mx-auto 
             text-gray-900 dark:text-white"
           >
-            Why choose us as your accountant consultant?
+            Why choose us as your <span className="text-primary">accountant</span> consultant?
           </h2>
         </div>
 
@@ -32,10 +41,10 @@ const OurService = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div
-              className="space-y-2 shadow hover:shadow-2xl duration-500 p-4 
+              className="space-y-2 shadow group hover:shadow-2xl duration-500 p-4 
                 bg-white dark:bg-gray-900 rounded-lg"
             >
-              <GiCrystalGrowth size={28} className="text-primary" />
+              <GiCrystalGrowth size={28} className="icons-animation" />
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Accelerate Business Growth
               </h4>
@@ -47,10 +56,10 @@ const OurService = () => {
 
             {/* Card 2 */}
             <div
-              className="space-y-2 shadow hover:shadow-2xl duration-500 p-4 
+              className="space-y-2 shadow group hover:shadow-2xl duration-500 p-4 
                 bg-white dark:bg-gray-900 rounded-lg"
             >
-              <FaChartLine size={24} className="text-primary" />
+              <FaChartLine size={24} className="icons-animation" />
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Navigate Capital Markets
               </h4>
@@ -62,10 +71,10 @@ const OurService = () => {
 
             {/* Card 3 */}
             <div
-              className="space-y-2 shadow hover:shadow-2xl duration-500 p-4 
+              className="space-y-2 shadow group hover:shadow-2xl duration-500 p-4 
                 bg-white dark:bg-gray-900 rounded-lg"
             >
-              <TbBusinessplan size={28} className="text-primary" />
+              <TbBusinessplan size={28} className="icons-animation" />
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Strategic Business Planning
               </h4>
@@ -77,10 +86,10 @@ const OurService = () => {
 
             {/* Card 4 */}
             <div
-              className="space-y-2 shadow hover:shadow-2xl duration-500 p-4 
+              className="space-y-2 shadow group hover:shadow-2xl duration-500 p-4 
                 bg-white dark:bg-gray-900 rounded-t-lg"
             >
-              <TbTax size={28} className="text-primary" />
+              <TbTax size={28} className="icons-animation" />
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Smart Financial Planning
               </h4>
@@ -92,10 +101,10 @@ const OurService = () => {
 
             {/* Card 5 */}
             <div
-              className="space-y-2 shadow hover:shadow-2xl duration-500 p-4 
+              className="space-y-2 shadow group hover:shadow-2xl duration-500 p-4 
                 bg-white dark:bg-gray-900 rounded-t-lg"
             >
-              <MdOutlineRoofing size={28} className="text-primary" />
+              <MdOutlineRoofing size={28} className="icons-animation" />
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Personalized Investment Strategy
               </h4>

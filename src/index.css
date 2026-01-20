@@ -16,6 +16,9 @@
   
 
 @layer components {
+  .icons-animation {
+    @apply text-primary group-hover:[animation:spin_0.5s_linear_1]
+  }
   .testimonial-shadow {
     transition: box-shadow 0.3s ease; 
     box-shadow: 2px 2px 5px rgba(79, 15, 209, 0.2); 

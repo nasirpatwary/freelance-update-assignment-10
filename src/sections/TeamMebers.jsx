@@ -18,13 +18,22 @@ const TeamMembers = () => {
 
   return (
     <Container>
-      <div className="space-y-4 md:text-center">
-        <span
-          className="uppercase shadow px-2 py-1 rounded text-xs font-medium 
-          text-gray-700 dark:text-gray-300"
-        >
+      <div className="space-y-3 md:text-center">
+        <p
+            className="inline-block
+
+              bg-[#eeedfc] dark:bg-[#1e1d2a]
+
+              border border-primary
+
+              text-gray-700 dark:text-gray-300
+
+              w-fit px-2 py-1 rounded-full
+
+              text-sm font-medium"
+          >
           Our Team
-        </span>
+          </p>
         <h1 className="text-2xl mt-4 md:text-4xl font-bold text-gray-900 dark:text-white">
           Expert <span className="text-primary">Financial</span> Team
         </h1>

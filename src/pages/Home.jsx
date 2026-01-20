@@ -1,4 +1,5 @@
 import Hero from "../sections/Hore";
+import Newsletter from "../sections/Newsletter";
 import OurService from "../sections/OurService";
 import Pricing from "../sections/Pricing";
 import TeamMebers from "../sections/TeamMebers";
@@ -20,6 +21,9 @@ const Home = () => {
       <section>
         <Pricing />
         </section> 
+        <section>
+        <Newsletter />
+        </section>
         <section>
         <Testimonials />
         </section>
