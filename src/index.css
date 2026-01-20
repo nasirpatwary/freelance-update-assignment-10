@@ -1,0 +1,45 @@
+@import "tailwindcss";
+ @plugin "daisyui" {
+   themes: light --default, dark --prefersdark;
+ }
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #8550fb;
+  --color-secondary: #A288FD;
+  --color-success: #C0BBFE;
+}
+* :focus{
+  outline: none;
+}
+@custom-variant dark (&:where(.dark, .dark *));
+  
+
+@layer components {
+  .testimonial-shadow {
+    transition: box-shadow 0.3s ease; 
+    box-shadow: 2px 2px 5px rgba(79, 15, 209, 0.2); 
+  }
+  
+  .testimonial-shadow:hover {
+    box-shadow: 4px 8px 20px rgba(79, 15, 209, 0.5);
+  }
+  .btn-primary{
+    @apply bg-primary text-white border-none hover:bg-primary/90
+  }
+  .btn-primary{
+    @apply border w-full md:w-fit duration-500 hover:bg-primary hover:text-white border-primary py-1 cursor-pointer px-4 rounded font-semibold
+  }
+  
+  .input-field{
+    @apply focus:outline-1 mt-1 dark:text-white focus:outline-primary border py-2 px-4 rounded border-gray-200 w-full
+  }
+  
+  
+  .nav{
+    @apply absolute left-0 bottom-0 w-full bg-primary h-0.5 scale-x-0 group-hover:scale-x-100 transform origin-center transition-all duration-300
+  }
+  .active{
+    @apply text-primary font-medium
+  }
+}
