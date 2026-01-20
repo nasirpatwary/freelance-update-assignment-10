@@ -19,7 +19,7 @@ const Newsletter = () => {
     }
   };
   return (
-    <section className="py-20">
+    <>
       <Container>
         <div className="relative overflow-hidden bg-primary/10 dark:bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-16">
           {/* Decorative Background Circles */}
@@ -34,7 +34,7 @@ const Newsletter = () => {
                 <span>Weekly Freelance Insights</span>
               </div>
 
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 Scale your freelance{" "}
                 <span className="text-primary">career</span> faster.
               </h2>
@@ -94,7 +94,7 @@ const Newsletter = () => {
           </div>
         </div>
       </Container>
-    </section>
+    </>
   );
 };
 

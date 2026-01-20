@@ -50,12 +50,13 @@ const slides = [
 
 const Hero = () => {
   return (
-    <Container>
-      <Swiper
-        modules={[Autoplay, EffectFade]}
-        slidesPerView={1}
-        effect={"fade"}
-        fadeEffect={{ crossFade: true }}
+    <div className="bg-primary/10 py-10">
+      <Container>
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          slidesPerView={1}
+          effect={"fade"}
+          fadeEffect={{ crossFade: true }}
         loop={true}
         speed={1500}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -141,6 +142,7 @@ const Hero = () => {
         ))}
       </Swiper>
     </Container>
+    </div>
   );
 };
 

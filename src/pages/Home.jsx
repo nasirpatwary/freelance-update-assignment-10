@@ -1,3 +1,4 @@
+import Blog from "../sections/Blog";
 import Hero from "../sections/Hore";
 import Newsletter from "../sections/Newsletter";
 import OurService from "../sections/OurService";
@@ -15,6 +16,9 @@ const Home = () => {
       <section>
         <OurService />
       </section>
+        <section>
+        <Blog />
+        </section>
       <section>
         <TeamMebers />  
       </section>
