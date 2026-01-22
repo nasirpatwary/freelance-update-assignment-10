@@ -80,7 +80,7 @@ const Categories = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white"
+            className="text-2xl md:text-5xl font-bold text-gray-900 dark:text-white"
           >
             Financial <span className="text-primary">Ecosystem</span>
           </motion.h2>
@@ -102,7 +102,7 @@ const Categories = () => {
 
               <div className="space-y-5">
                 {/* Icon with Spin Once Effect */}
-                <div className="text-5xl text-primary w-fit group-hover:[animation:spin_0.8s_ease-in-out_1]">
+                <div className="text-3xl text-primary w-fit group-hover:[animation:spin_0.8s_ease-in-out_1]">
                   {item.icon}
                 </div>
                 

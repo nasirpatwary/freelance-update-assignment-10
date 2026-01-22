@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 import Container from "../shared/Container";
 import { useForm } from "react-hook-form";
-import FormInput from "../shared/forms/FormInput";
 import toast from "react-hot-toast";
+import { FormInput } from "../shared/forms/FormElements";
 
 const Newsletter = () => {
   const { control, handleSubmit } = useForm({
@@ -34,7 +33,7 @@ const Newsletter = () => {
                 <span>Weekly Freelance Insights</span>
               </div>
 
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h2 className="text-2xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                 Scale your freelance{" "}
                 <span className="text-primary">career</span> faster.
               </h2>

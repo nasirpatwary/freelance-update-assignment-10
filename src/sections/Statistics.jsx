@@ -19,7 +19,7 @@ const Statistics = () => {
               <div className={`text-4xl ${stat.color} flex justify-center group-hover:scale-110 duration-300`}>
                 {stat.icon}
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white">
+              <h2 className="text-2xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {stat.value}
               </h2>
               <p className="text-gray-500 dark:text-gray-400 font-medium uppercase tracking-widest text-xs">

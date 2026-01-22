@@ -30,7 +30,7 @@ const OurService = () => {
           </p>
 
           <h2
-            className="text-2xl mt-4 md:text-4xl font-bold max-w-[20ch] mx-auto 
+            className="text-2xl mt-4 md:text-5xl font-bold max-w-[20ch] mx-auto 
             text-gray-900 dark:text-white"
           >
             Why choose us as your <span className="text-primary">accountant</span> consultant?

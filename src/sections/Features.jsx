@@ -11,7 +11,7 @@ const Features = () => (
   <>
     <Container>
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold dark:text-white">Why Choose <span className="text-primary">Us</span></h2>
+        <h2 className="text-2xl md:text-5xl font-bold dark:text-white">Why Choose <span className="text-primary">Us</span></h2>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {features.map((f, i) => (

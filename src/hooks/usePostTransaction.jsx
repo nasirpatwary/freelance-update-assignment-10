@@ -6,7 +6,7 @@ const usePostTransaction = () => {
     const queryClient = useQueryClient()
      const { mutateAsync, isPending } = useMutation({
        mutationFn: async (newTransactions) => {
-         return await axiosSecure.post("/transactions", newTransactions);
+        return await axiosSecure.post("/transactions", newTransactions);
        },
        onSuccess: () => {
          toast.success("Add transaction uccessfully!");

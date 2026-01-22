@@ -12,6 +12,7 @@
 * :focus{
   outline: none;
 }
+
 @custom-variant dark (&:where(.dark, .dark *));
   
 
@@ -35,7 +36,7 @@
   }
   
   .input-field{
-    @apply focus:outline-1 mt-1 dark:text-white focus:outline-primary border py-2 px-4 rounded border-gray-200 w-full
+    @apply input focus:border-primary w-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100
   }
   
   

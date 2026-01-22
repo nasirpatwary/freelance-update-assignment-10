@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-const CustomLink = ({ routPath, to, path }) => (
-  <p className="dark:text-gray-400">
+const CustomLink = ({ routPath, to, path, state }) => (
+  <p>
     {routPath}{" "}
-    <Link to={to} className="text-primary underline">
+    <Link to={to} state={state} className="underline">
       {path}
     </Link>
   </p>

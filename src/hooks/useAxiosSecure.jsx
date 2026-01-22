@@ -2,38 +2,38 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import useAuth from "./useAuth";
+
 const instance = axios.create({
   baseURL: import.meta.env.VITE_LOCALHOST,
+  withCredentials: true, 
 });
+
 const useAxiosSecure = () => {
   const navigate = useNavigate();
-  const { user, logOutUser } = useAuth();
-  useEffect(() => {
-    const requestInterceptor = instance.interceptors.request.use((config) => {
-      const token = user.accessToken;
-      if (token) {
-        config.headers.authorization = `Bearer ${token}`;
-      }
-      return config;
-    });
+  const { logOutUser } = useAuth();
 
+  useEffect(() => {
     const responseInterceptor = instance.interceptors.response.use(
       (response) => {
         return response;
       },
       async (error) => {
-        if (error.status === 401 || error.status === 403) {
+        console.log('Error caught in interceptor:', error.response);
+        const status = error.response ? error.response.status : null;
+        if (error.response && (status === 401 || status === 403)) {
           await logOutUser();
-          navigate("/register");
+          navigate("/login");
         }
         return Promise.reject(error);
       }
     );
+
+    // Cleanup interceptor on unmount
     return () => {
-      instance.interceptors.request.eject(requestInterceptor);
-      instance.interceptors.request.eject(responseInterceptor);
+      instance.interceptors.response.eject(responseInterceptor);
     };
-  }, [user, logOutUser, navigate]);
+  }, [logOutUser, navigate]);
+
   return instance;
 };
 

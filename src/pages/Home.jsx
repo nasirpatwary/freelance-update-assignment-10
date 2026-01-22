@@ -1,8 +1,9 @@
 import Blog from "../sections/Blog";
 import Categories from "../sections/Categories";
 import CTAHighlights from "../sections/CTAHighlights";
+import FAQ from "../sections/FAQ";
 import Features from "../sections/Features";
-import Hero from "../sections/Hore";
+import Hero from "../sections/Hero";
 import Newsletter from "../sections/Newsletter";
 import OurService from "../sections/OurService";
 import Statistics from "../sections/Statistics";
@@ -26,6 +27,9 @@ const Home = () => {
         </section>
         <section>
         <CTAHighlights />
+        </section>
+        <section>
+        <FAQ />
         </section>
         <section>
         <Features />

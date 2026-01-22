@@ -1,178 +1,204 @@
-import useAuth from "../hooks/useAuth";
-import Container from "../shared/Container";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import DatePicker from "react-datepicker";
-import { useState } from "react";
-import usePostTransaction from "../hooks/usePostTransaction";
-import { TbFidgetSpinner } from "react-icons/tb";
 import toast from "react-hot-toast";
+import { TbFidgetSpinner } from "react-icons/tb";
+import useAuth from "../hooks/useAuth";
+import usePostTransaction from "../hooks/usePostTransaction";
+import Container from "../shared/Container";
+import {
+  FormDatePicker,
+  FormInput,
+  FormRadio,
+  FormSelect,
+  FormTextArea,
+} from "../shared/forms/FormElements";
 
-const CreateProduct = () => {
-  const [startDate, setStartDate] = useState(null);
+const TransactionForm = () => {
   const navigate = useNavigate();
-  const [mutateAsync, isPending] = usePostTransaction();
   const { user } = useAuth();
+  const [mutateAsync, isPending] = usePostTransaction();
 
-  const handleAddTransaction = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const transactionData = {
-      name: form.name.value,
-      email: form.email.value,
-      category: form.category.value,
-      amount: form.amount.value,
-      condition: form.condition.value,
-      description: form.description.value,
-      date: startDate,
-    };
+  // React Hook Form Setup
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      title: "",
+      img: "",
+      amount: "",
+      category: "",
+      location: "",
+      rating: "",
+      condition: "",
+      description: "",
+      name: user?.displayName || "",
+      email: user?.email || "",
+      date: new Date(),
+    },
+  });
 
-    const isEmpty = Object.values(transactionData).some(
-      (v) => v === "" || v === null
-    );
-    if (isEmpty) return toast.error("All fields are required!");
-
-    await mutateAsync(transactionData);
-    navigate("/myTransactions");
+  const onSubmit = async (data) => {
+    try {
+      await mutateAsync(data);
+      navigate("/myTransactions");
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   return (
     <>
-      <title>Add Transaction</title>
-      <Container className="max-w-3xl shadow my-12">
-        <div className="text-center space-y-3 pt-5">
-          <h3 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
-            Track Every Step
+      <title>Add Transaction | Finance Tracker</title>
+
+      <Container className="max-w-3xl shadow-xl rounded-3xl my-12 bg-white dark:bg-gray-800 transition-all border border-gray-100 dark:border-gray-700">
+        {/* Header Section */}
+        <div className="text-center space-y-3 pt-8 px-5">
+          <h3 className="text-2xl md:text-4xl font-black text-gray-900 dark:text-gray-100">
+            Track Every <span className="text-primary">Step</span>
           </h3>
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             Monitor your transactions in real-time and stay informed every step
             of the way.
           </p>
         </div>
+
+        {/* Form Section */}
         <form
-          onSubmit={handleAddTransaction}
-          className="p-5 shadow rounded-lg my-12 bg-white dark:bg-gray-800"
+          onSubmit={handleSubmit(onSubmit)}
+          className="p-8 md:p-10 space-y-6"
         >
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex flex-col">
-              <label className="label text-gray-900 dark:text-gray-100">
-                Income / Expense
-              </label>
-              <div className="flex gap-6 mt-1">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="condition"
-                    value="expense"
-                    className="radio peer border-gray-400 dark:border-gray-300 focus:outline-1 focus:outline-primary checked:bg-primary"
-                  />
-                  <span className="peer-focus:text-primary dark:text-gray-100">
-                    Expense
-                  </span>
-                </label>
+          <div className="grid md:grid-cols-2 gap-6">
+            <FormInput
+              name="title"
+              label="Title"
+              control={control}
+              placeholder="Business Title"
+              rules={{ required: "Title is required" }}
+            /> 
+            <FormRadio
+              name="condition"
+              control={control}
+              label="Income / Expense"
+              options={[
+                { label: "Expense", value: "expense" },
+                { label: "Income", value: "income" },
+              ]}
+              rules={{ required: "Income / Expense" }}
+            />
+    
+            <FormInput
+              name="img"
+              label="Image URL"
+              control={control}
+              placeholder="Your Image URL..."
+              rules={{ required: "Image URL is required" }}
+            />
+             <FormSelect
+              name="location"
+              control={control}
+              label="Location"
+              rules={{ required: "Please select a location" }}
+              options={[
+                { label: "New York, USA", value: "New York, USA" },
+                { label: "Remote", value: "Remote" },
+                { label: "Wall Street", value: "Wall Street" },
+                { label: "Virginia, USA", value: "Virginia, USA" },
+                { label: "London, UK", value: "London, UK" },
+                { label: "Dubai, UAE", value: "Dubai, UAE" },
+                { label: "Blockchain", value: "Blockchain" },
+                { label: "Singapore", value: "Singapore" },
+                { label: "Geneva, Switzerland", value: "Geneva, Switzerland" },
+                { label: "Corporate Office", value: "Corporate Office" },
+                { label: "San Francisco, USA", value: "San Francisco, USA" },
+                { label: "Local Market", value: "Local Market" },
+              ]}
+            />
 
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="condition"
-                    value="income"
-                    className="radio peer border-gray-400 dark:border-gray-300 focus:outline-1 focus:outline-primary checked:bg-primary"
-                  />
-                  <span className="peer-focus:text-primary dark:text-gray-100">
-                    Income
-                  </span>
-                </label>
-              </div>
-            </div>
+            {/* Amount Input */}
+            <FormInput
+              name="amount"
+              control={control}
+              label="Amount ($)"
+              type="number"
+              placeholder="e.g. 19.5"
+              rules={{
+                required: "Amount is required",
+                min: { value: 0.1, message: "Min amount 0.1" },
+              }}
+            />
+             {/* Category Select */}
+            <FormSelect
+              name="category"
+              control={control}
+              label="Category"
+              rules={{ required: "Please select a category" }}
+              options={[
+                { label: "Housing", value: "Housing" },
+                { label: "Income", value: "Income" },
+                { label: "Savings", value: "Savings" },
+                { label: "Business", value: "Business" },
+                { label: "Services", value: "Services" },
+                { label: "Food", value: "Food" },
+                { label: "Donation", value: "Donation" },
+                { label: "Salary", value: "Salary" },
+              ]}
+            />
+            <FormInput
+              name="rating"
+              control={control}
+              label="Rating"
+              type="number"
+              placeholder="e.g. 4.5"
+              rules={{
+                required: "Rating is required",
+                min: { value: 3.5, message: "Min rating 3.5" },
+              }}
+            />
+            {/* Date Picker */}
+            <FormDatePicker
+              name="date"
+              control={control}
+              label="Select a Date"
+              rules={{ required: "Date is required" }}
+            />
 
-            <div>
-              <label className="label text-gray-900 dark:text-gray-100">
-                Category
-              </label>
-              <select
-                name="category"
-                className="input-field dark:bg-gray-800 text-black"
-              >
-                <option value="" disabled selected>
-                  Select a Category
-                </option>
-                <option value="housing">Housing / Rent</option>
-                <option value="food">Food & Groceries</option>
-                <option value="savings">Savings / Investments</option>
-              </select>
-            </div>
+            {/* Name (Read Only Style) */}
+            <FormInput
+              name="name"
+              control={control}
+              label="Your Name"
+              readOnly
+              className="input bg-gray-100 dark:bg-gray-700 opacity-70 cursor-not-allowed"
+            />
 
-            <div>
-              <label className="label text-gray-900 dark:text-gray-100">
-                Amount ($)
-              </label>
-              <input
-                type="number"
-                name="amount"
-                placeholder="e.g. 19.5"
-                className="input-field"
-              />
-            </div>
-
-            <div>
-              <label className="label text-gray-900 dark:text-gray-100">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                readOnly
-                defaultValue={user?.displayName}
-                placeholder="Your Name"
-                className="input-field bg-gray-100 dark:bg-gray-700"
-              />
-            </div>
-
-            <div>
-              <label className="label text-gray-900 dark:text-gray-100">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                readOnly
-                defaultValue={user?.email}
-                placeholder="test@gmail.com"
-                className="input-field bg-gray-100 dark:bg-gray-700"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label className="label text-gray-900 dark:text-gray-100">
-                Select a Date
-              </label>
-              <DatePicker
-                className="input-field"
-                selected={startDate}
-                dateFormat="yyyy-MM-dd"
-                placeholderText="yyyy-mm-dd"
-                onChange={(date) => setStartDate(date)}
-              />
-            </div>
+            {/* Email (Read Only Style) */}
+            <FormInput
+              name="email"
+              control={control}
+              label="Email Address"
+              readOnly
+              className="input bg-gray-100 dark:bg-gray-700 opacity-70 cursor-not-allowed"
+            />
           </div>
 
-          <div className="mt-4">
-            <label className="label text-gray-900 dark:text-white">
-              Simple Description
-            </label>
-            <textarea
-              name="description"
-              placeholder="Optional note..."
-              className="input-field"
-              rows={4}
-            ></textarea>
-          </div>
+          {/* Description Textarea */}
+          <FormTextArea
+            name="description"
+            control={control}
+            label="Simple Description"
+            placeholder="Optional note about this transaction..."
+            rules={{ required: "Description is required" }}
+          />
 
-          <div className="text-end">
-            <button type="submit" className="btn btn-primary mt-6">
+          {/* Submit Button */}
+          <div className="text-end pt-4">
+            <button
+              type="submit"
+              disabled={isPending}
+              className="btn btn-primary px-10 rounded-xl text-white font-bold transition-all hover:scale-105 active:scale-95 disabled:bg-gray-400"
+            >
               {isPending ? (
-                <span className="flex items-center">
+                <span className="flex items-center gap-2">
                   Submitting{" "}
-                  <TbFidgetSpinner size={20} className="animate-spin m-auto" />
+                  <TbFidgetSpinner className="animate-spin" size={20} />
                 </span>
               ) : (
                 "Add Transaction!"
@@ -185,4 +211,4 @@ const CreateProduct = () => {
   );
 };
 
-export default CreateProduct;
+export default TransactionForm;

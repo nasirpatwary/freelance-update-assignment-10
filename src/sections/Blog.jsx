@@ -50,7 +50,7 @@ const Blog = () => {
               text-sm font-medium tracking-widest uppercase text-primary">
               Resources & Insights
             </p>
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white max-w-[20ch]">
+            <h2 className="text-2xl md:text-5xl leading-[1.1] font-bold text-gray-900 dark:text-white max-w-[20ch]">
               Latest From Our <span className="text-primary">Freelance</span> Blog
             </h2>
           </div>

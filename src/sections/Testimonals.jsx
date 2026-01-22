@@ -70,7 +70,7 @@ const Testimonials = () => {
           >
           Feedback from Clients
         </p>
-        <h2 className="text-2xl mt-4 md:text-4xl font-bold text-gray-900 dark:text-white">
+        <h2 className="text-2xl mt-4 md:text-5xl font-bold text-gray-900 dark:text-white">
           What Our Clients Say
         </h2>
         <p className="text-gray-500 dark:text-gray-300">

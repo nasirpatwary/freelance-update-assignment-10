@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
+import { CiDark  } from "react-icons/ci";
 
 const DarkMode = () => {
   const [theme, setTheme] = useState(() => {
@@ -26,7 +27,7 @@ const DarkMode = () => {
     dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100
     transition-all duration-200"
       >
-        {theme ? <MdDarkMode size={24} /> : <MdOutlineLightMode size={24} />}
+        {theme ? <CiDark  size={24} /> : <MdOutlineLightMode size={24} />}
       </button>
     </div>
   );

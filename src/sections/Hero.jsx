@@ -49,7 +49,7 @@ const slides = [
 
 const Hero = () => {
   return (
-    <div className="bg-primary/5 dark:bg-[#0b0b0f] py-10 lg:py-20 transition-colors duration-500">
+    <div className="bg-primary/5 dark:bg-[#0b0b0f] py-10 transition-colors duration-500">
       <Container>
         <Swiper
           modules={[Autoplay, EffectFade]}

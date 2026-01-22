@@ -1,22 +1,22 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
-
+import banner from "../assets/two.jpg"
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "../shared/SocialLogin";
 import CustomLink from "../shared/CustomLink";
 import Container from "../shared/Container";
 import createUserDB from "../utils/createUserDB";
 import success from "../assets/looties1.json";
-import FormInput from "../shared/forms/FormInput";
-import FormCheckbox from "../shared/forms/FormCheckbox";
+import { FormCheckbox, FormInput } from "../shared/forms/FormElements";
 
 const Register = () => {
   const [showEye, setShowEye] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { createUser, updateUserProfile, logOutUser } = useAuth();
 
   const { control, handleSubmit } = useForm({
@@ -45,7 +45,7 @@ const Register = () => {
 
       await logOutUser();
       toast.success("Registered successfully! Please login.");
-      navigate("/login");
+      navigate(location.state ||  "/login");
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Auth email already in use");
@@ -55,9 +55,10 @@ const Register = () => {
   return (
     <>
       <title>Register || Page</title>
-      <Container className="flex flex-col lg:flex-row gap-8 items-center justify-around my-12">
-        <div className="card w-full max-w-sm shadow-2xl bg-white dark:bg-gray-800 p-4 md:p-6">
-          <h1 className="text-2xl font-semibold text-center mt-4 text-gray-900 dark:text-gray-100">
+      <div className="bg-no-repeat bg-cover" style={{backgroundImage: `url(${banner})`}}>
+      <Container className="flex flex-col lg:flex-row gap-8 items-center justify-around">
+        <div className="card w-full max-w-lg shadow-2xl bg-white/30 backdrop-blur-lg p-4 md:p-6">
+          <h1 className="text-2xl font-semibold text-center mb-4 text-gray-900 dark:text-gray-100">
             Register your account
           </h1>
 
@@ -85,7 +86,7 @@ const Register = () => {
               name="email"
               label="Email"
               control={control}
-              placeholder="nasir@email.com"
+              placeholder="example@email.com"
               rules={{
                 required: "Email is required",
                 pattern: {
@@ -153,6 +154,7 @@ const Register = () => {
           <Lottie animationData={success} loop={true} />
         </div>
       </Container>
+      </div>
     </>
   );
 };

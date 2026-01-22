@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import banner from "../assets/one.jpg"
 
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "../shared/SocialLogin";
 import CustomLink from "../shared/CustomLink";
 import Container from "../shared/Container";
 import success from "../assets/looties3.json";
-import FormInput from "../shared/forms/FormInput";
+import { FormInput } from "../shared/forms/FormElements";
 
 const Login = () => {
   const { signInUser, user } = useAuth();
@@ -42,8 +43,9 @@ const Login = () => {
   return (
     <>
       <title>Login || Page</title>
-      <Container className="flex flex-col lg:flex-row gap-8 items-center justify-around my-12">
-        <div className="card w-full max-w-sm shadow-2xl bg-white dark:bg-gray-800 p-4 md:p-6">
+      <div className="bg-no-repeat bg-cover h-screen" style={{backgroundImage: `url(${banner})`}}>
+      <Container className="flex flex-col lg:flex-row gap-8 items-center justify-around h-screen">
+        <div className="card w-full max-w-lg shadow-2xl bg-white/30 backdrop-blur-lg p-4 md:p-6">
           <h1 className="text-2xl font-semibold text-center text-gray-900 dark:text-gray-100 mb-4">
             Login your account
           </h1>
@@ -81,6 +83,7 @@ const Login = () => {
           <div className="mt-6 space-y-4">
             <SocialLogin />
             <CustomLink
+             state={location.state}
               routPath="Don’t Have An Account?"
               to="/register"
               path="Register"
@@ -91,6 +94,7 @@ const Login = () => {
           <Lottie animationData={success} loop={true} />
         </div>
       </Container>
+      </div>
     </>
   );
 };

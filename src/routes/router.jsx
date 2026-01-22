@@ -10,11 +10,15 @@ import MyTransactions from "../pages/MyTransactions";
 import AddTransaction from "../pages/AddTransaction";
 import ErrorPage from "../pages/ErrorPage";
 import DetailsPage from "../pages/DetailsPage";
+import LoadingSpinner from "../shared/LoadingSpinner";
+import DashboarLayout from "../layouts/DashboarLayout";
+import Dashboard from "../pages/dashboard/dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
     errorElement: <ErrorPage />,
+    hydrateFallbackElement: <LoadingSpinner />,
     children: [
       {
         index: true,
@@ -68,6 +72,13 @@ const router = createBrowserRouter([
         path: "register",
         Component: Register,
       },
+    ],
+  },
+   {
+    path: "dashboard",
+    element: <PrivateRouter><DashboarLayout /></PrivateRouter>,
+    children: [
+      { index: true, Component: Dashboard  },
     ],
   },
 ]);

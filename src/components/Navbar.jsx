@@ -9,6 +9,7 @@ import Container from "../shared/Container";
 import { ButtonComponent } from "../shared/ButtonComponent";
 import logo from "../assets/icons8-redux-48-removebg-preview.png";
 import SocialLogin from "../shared/SocialLogin";
+import { IoSettingsOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -40,19 +41,14 @@ const Navbar = () => {
         MyTransactions <span className="nav"></span>
       </NavLink>
 
-      <NavLink
-        to="/reports"
-        className="group relative text-gray-700 dark:text-gray-200"
-      >
-        Reports <span className="nav"></span>
-      </NavLink>
-
-      <NavLink
-        to="/profile"
-        className="group relative text-gray-700 dark:text-gray-200"
-      >
-        MyProfile <span className="nav"></span>
-      </NavLink>
+      {user && (
+        <NavLink
+          to="/dashboard"
+          className="group relative text-gray-700 dark:text-gray-200"
+        >
+          Dashboard <span className="nav"></span>
+        </NavLink>
+      )}
     </>
   );
 
@@ -73,7 +69,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu text-base menu-horizontal gap-4">{navLinks}</ul>
+            <ul className="menu text-base menu-horizontal gap-6">{navLinks}</ul>
           </div>
           <div className="navbar-end">
             <div className="lg:hidden">
@@ -114,7 +110,7 @@ const Navbar = () => {
                       {user ? (
                         <div className="space-y-4 text-center">
                           <img
-                          referrerPolicy="no-referrer"
+                            referrerPolicy="no-referrer"
                             className="size-10 mx-auto rounded-full object-cover cursor-pointer"
                             src={
                               user?.photoURL ||
@@ -128,7 +124,9 @@ const Navbar = () => {
                               {user?.email}
                             </small>
                           </div>
-
+                          <Link to="/profile">
+                            <IoSettingsOutline /> Profile
+                          </Link>
                           <button
                             onClick={logOutUser}
                             className="cursor-pointer flex items-center gap-2 mx-auto text-gray-700 dark:text-gray-300"
@@ -192,7 +190,7 @@ const Navbar = () => {
                   {user ? (
                     <div className="space-y-4 text-center">
                       <img
-                      referrerPolicy="no-referrer"
+                        referrerPolicy="no-referrer"
                         className="size-10 mx-auto rounded-full object-cover cursor-pointer"
                         src={
                           user?.photoURL ||
@@ -207,7 +205,9 @@ const Navbar = () => {
                           {user?.email}
                         </small>
                       </div>
-
+                      <Link to="/profile" className="flex justify-center gap-2">
+                        <IoSettingsOutline size={20} /> Profile
+                      </Link>
                       <button
                         onClick={logOutUser}
                         className="cursor-pointer flex items-center gap-2 mx-auto text-gray-700 dark:text-gray-300"
@@ -218,7 +218,7 @@ const Navbar = () => {
                   ) : (
                     <div className="flex flex-col space-y-4">
                       <img
-                      referrerPolicy="no-referrer"
+                        referrerPolicy="no-referrer"
                         className="size-10 mx-auto rounded-full object-cover cursor-pointer"
                         src={
                           user?.photoURL ||
@@ -241,7 +241,6 @@ const Navbar = () => {
                         Register
                       </ButtonComponent>
                       <SocialLogin />
-
                     </div>
                   )}
                 </div>
