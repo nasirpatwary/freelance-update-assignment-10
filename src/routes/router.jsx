@@ -17,6 +17,9 @@ import AddTransaction from "../pages/dashboard/AddTransaction";
 import MyTransactions from "../pages/dashboard/MyTransactions";
 import Financials from "../pages/Financials";
 import TransactionDetails from "../shared/TransactionDetails";
+import PrivateAdmin from "../private/PrivateAdmin";
+import Reports from "../pages/dashboard/Reports";
+import AllUsers from "../pages/dashboard/users/AllUsers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -89,7 +92,13 @@ const router = createBrowserRouter([
         path: "details/:id",
         Component: DetailsPage 
       },
+      {
+        path: "profile",
+        Component: Profile 
+      },
       { path: "myTransaction", Component: MyTransactions },
+      { path: "reports", element: <PrivateAdmin><Reports /></PrivateAdmin> },
+      { path: "users", element: <PrivateAdmin><AllUsers /></PrivateAdmin> },
     ],
   },
 ]);

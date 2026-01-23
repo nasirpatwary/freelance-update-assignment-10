@@ -10,7 +10,7 @@ const MyTransactions = () => {
   if (isError) return <ErrorPage />;
 
   return (
-    <Container className="h-screen py-10">
+    <Container className="py-10">
       <title>My Transactions</title>
       <div className="text-center space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">

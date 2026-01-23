@@ -1,11 +1,11 @@
 import { Link } from "react-router"
 import useAuth from "../hooks/useAuth"
-import RoleContent from "../shared/RoleContent"
 import Container from "../shared/Container"
-import useRole from "../hooks/useRole"
 import LoadingSpinner from "../shared/LoadingSpinner"
+import RoleContent from "../shared/RoleContent"
+import { useRole } from "../hooks/useUserFuntionalty"
 
-const AdminRouter = ({children}) => {
+const PrivateAdmin = ({children}) => {
   const {loading} = useAuth()
   const {role, isRoleLoading} = useRole()
   if(loading || isRoleLoading) return <LoadingSpinner />
@@ -22,4 +22,4 @@ const AdminRouter = ({children}) => {
   return children
 }
 
-export default AdminRouter
+export default PrivateAdmin

@@ -47,8 +47,8 @@ const AddTransaction = () => {
   return (
     <>
       <title>Add Transaction | Finance Tracker</title>
-
-      <Container className="max-w-4xl shadow-xl rounded-b-3xl bg-white dark:bg-gray-800 transition-all border border-gray-100 dark:border-gray-700">
+      <div className="py-10">
+      <Container className="max-w-4xl bg-white dark:bg-[#1e293b] rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl rounded-b-3xl transition-all">
         {/* Header Section */}
         <div className="text-center space-y-3 pt-8 px-5">
           <h3 className="text-2xl md:text-4xl font-black text-gray-900 dark:text-gray-100">
@@ -63,7 +63,7 @@ const AddTransaction = () => {
         {/* Form Section */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="p-8 md:p-10 space-y-6"
+          className="p-4 md:p-10 space-y-6"
         >
           <div className="grid md:grid-cols-2 gap-6">
             <FormInput
@@ -207,6 +207,7 @@ const AddTransaction = () => {
           </div>
         </form>
       </Container>
+      </div>
     </>
   );
 };

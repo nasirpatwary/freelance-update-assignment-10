@@ -33,6 +33,8 @@ const blogPosts = [
 const BlogPage = () => {
   
   return (
+    <>
+    <title>Financial Blogs | Page</title>
     <div className="transition-colors duration-500 min-h-[calc(100vh-352px)] py-10 mb-16">
       <Container>
         
@@ -63,6 +65,7 @@ const BlogPage = () => {
         </div>
       </Container>
     </div>
+    </>
   );
 };
 

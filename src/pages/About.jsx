@@ -8,7 +8,8 @@ const About = () => {
   };
 
   return (
-    // transition-colors duration-500 ensures the theme switch is smooth for the eyes
+    <>
+    <title>Financial About | Page</title>
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-[calc(100vh-352px)]">
       
       {/* Hero Section */}
@@ -66,6 +67,7 @@ const About = () => {
         </div>
       </Container>
     </div>
+    </>
   );
 };
 

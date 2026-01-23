@@ -1,4 +1,4 @@
-import useRole from "../../hooks/useRole";
+import { useRole } from "../../hooks/useUserFuntionalty";
 import DashboardAdmin from "./DashboardAdmin";
 import DashboardUser from "./DashboardUser";
 

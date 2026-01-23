@@ -8,14 +8,13 @@ import {
 } from "recharts";
 
 import usePieChart from "../../hooks/usePieChart";
-import Container from "../../shared/Container";
 import ChartCard from "../../sections/ChartCard";
 const Reports = () => {
   const { charts } = usePieChart();
   return (
     <>
       <title>Reports || Financial</title>
-      <Container className="my-12">
+      <div className="py-10 px-4 lg:px-8">
         <ChartCard />
         <div className="mt-12 md:flex space-y-8">
           <div style={{ width: "100%", height: 300 }}>
@@ -58,7 +57,7 @@ const Reports = () => {
             </PieChart>
           </ResponsiveContainer>
         </div>
-      </Container>
+      </div>
     </>
   );
 };

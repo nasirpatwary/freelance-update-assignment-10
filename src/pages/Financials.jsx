@@ -26,6 +26,8 @@ const Financials = () => {
   }, [inView, hasNextPage, fetchNextPage]);
 
   return (
+    <>
+    <title>All Financials | Page</title>
     <div className="bg-slate-50 dark:bg-slate-950 transition-colors duration-500 min-h-screen py-10">
       <Container>
         {/* --- Filter & Search Section --- */}
@@ -124,6 +126,7 @@ const Financials = () => {
         </div>
       </Container>
     </div>
+    </>
   );
 };
 

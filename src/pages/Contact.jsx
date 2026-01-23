@@ -20,6 +20,8 @@ const Contact = () => {
     }
   };
   return (
+    <>
+    <title>Financial Contact | Page</title>
     <section className="min-h-[calc(100vh-352px)] my-10">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
         <motion.div
@@ -96,6 +98,7 @@ const Contact = () => {
         </motion.form>
       </div>
     </section>
+    </>
   );
 };
 
