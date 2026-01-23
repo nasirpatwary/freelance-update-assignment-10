@@ -78,8 +78,8 @@ const Newsletter = () => {
                   <button
                     type="submit"
                     className="
-                    group mt-6
-                    btn rounded-l-none bg-black text-white hover:bg-primary border-0 duration-500
+                    group mt-7
+                    btn rounded-l-none rounded-xl bg-black text-white hover:bg-primary border-0 duration-500
 
                     dark:bg-primary dark:text-white dark:hover:bg-black
 

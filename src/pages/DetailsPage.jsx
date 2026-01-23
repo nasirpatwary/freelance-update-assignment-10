@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
-import useDeatils from "../hooks/useDetails";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import ErrorPage from "./ErrorPage";
 import DetailsTable from "./DetailsTable";
+import useDetailsTransaction from "../hooks/useDetailsTransaction";
 
 const DetailsPage = () => {
   const { id } = useParams();
-  const [transactions, isLoading, isError] = useDeatils(id);
+  const [transactions, isLoading, isError] = useDetailsTransaction(id);
   if (isLoading) return <LoadingSpinner />;
   if (isError) return <ErrorPage />;
 

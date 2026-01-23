@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { CiEdit } from "react-icons/ci";
 import { usePatchTran } from "../hooks/usePatchTran";
+import { FormInput, FormRadio, FormSelect, FormTextArea } from "../shared/forms/FormElements";
+import { useForm } from "react-hook-form";
 
 const MyModal = ({ category, amount, description, date, _id, condition }) => {
   const [mutateAsync, isPending] = usePatchTran();
@@ -14,21 +16,24 @@ const MyModal = ({ category, amount, description, date, _id, condition }) => {
   const handleShowModal = () => modalRef.current.showModal();
   const handleModalClose = () => modalRef.current.close();
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const updatesData = {
-      id: _id,
-      category: form.category.value,
-      amount: form.amount.value,
-      condition: form.condition.value,
-      description: form.description.value,
-      date: startDate,
-    };
-    await mutateAsync(updatesData);
-    modalRef.current.close();
-  };
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      category,
+      amount,
+      description,
+      date,
+      condition,
+    },
+  });
 
+  const onSubmit = async (data) => {
+    try {
+      await mutateAsync({ ...data, id: _id, date: startDate });
+      modalRef.current.close();
+    } catch (err) {
+      console.error("Error DB ---->", err.message);
+    }
+  };
   return (
     <>
       <button onClick={handleShowModal}>
@@ -37,66 +42,58 @@ const MyModal = ({ category, amount, description, date, _id, condition }) => {
 
       <dialog
         ref={modalRef}
-        className="modal modal-bottom sm:modal-middle dark:bg-gray-900 dark:text-gray-200"
+        className="modal modal-bottom sm:modal-middle dark:text-gray-200"
       >
-        <div className="modal-box space-y-2 text-center dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="font-bold text-xl">Edit Financial Entry!</h3>
+        <div className="modal-box space-y-4 dark:bg-gray-800 dark:text-gray-200">
+         <div className="text-center space-y-3">
+           <h3 className="font-bold text-xl">Edit Financial Entry!</h3>
           <p>
-            Review and update the information for this transaction to reflect
-            the latest changes
+            Review and update the information for this transaction to <br />{" "}
+            reflect the latest changes
           </p>
+         </div>
 
-          <form onSubmit={handleUpdate}>
-            <fieldset className="fieldset">
-              <label className="label">Income / Expense</label>
-              <div className="flex gap-6 mt-1 justify-center">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="condition"
-                    value="expense"
-                    className="radio peer focus:outline-1 focus:outline-primary"
-                    defaultChecked={condition === "expense"}
-                  />
-                  <span className="peer-focus:text-primary">Expense</span>
-                </label>
-
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="condition"
-                    value="income"
-                    className="peer radio focus:outline-1 focus:outline-primary"
-                    defaultChecked={condition === "income"}
-                  />
-                  <span className="peer-focus:text-primary">Income</span>
-                </label>
-              </div>
-
-              <label className="label">Category</label>
-              <select
-                name="category"
-                defaultValue={category}
-                className="input-field"
-              >
-                <option value="" disabled>
-                  Select a Category
-                </option>
-                <option value="housing">Housing</option>
-                <option value="food">Food</option>
-                <option value="savings">Savings</option>
-              </select>
-
-              <label className="label">Amount ($)</label>
-              <input
-                type="number"
-                name="amount"
-                placeholder="e.g. 19.5"
-                className="input-field"
-                defaultValue={amount}
-              />
-
-              <label className="label">Select a Date</label>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <FormRadio
+              name="condition"
+              control={control}
+              label="Income / Expense"
+              options={[
+                { label: "Expense", value: "expense" },
+                { label: "Income", value: "income" },
+              ]}
+              rules={{ required: "Income / Expense" }}
+            />
+            <FormInput
+              name="amount"
+              control={control}
+              label="Amount ($)"
+              type="number"
+              placeholder="e.g. 19.5"
+              rules={{
+                required: "Amount is required",
+                min: { value: 0.1, message: "Min amount 0.1" },
+              }}
+            />
+            {/* Category Select */}
+            <FormSelect
+              name="category"
+              control={control}
+              label="Category"
+              rules={{ required: "Please select a category" }}
+              options={[
+                { label: "Housing", value: "Housing" },
+                { label: "Income", value: "Income" },
+                { label: "Savings", value: "Savings" },
+                { label: "Business", value: "Business" },
+                { label: "Services", value: "Services" },
+                { label: "Food", value: "Food" },
+                { label: "Donation", value: "Donation" },
+                { label: "Salary", value: "Salary" },
+              ]}
+            />
+             <div className="flex flex-col">
+               <label className="label">Select a Date</label>
               <DatePicker
                 className="input-field"
                 selected={startDate}
@@ -104,17 +101,14 @@ const MyModal = ({ category, amount, description, date, _id, condition }) => {
                 placeholderText="yyyy-mm-dd"
                 onChange={(d) => setStartDate(d)}
               />
-
-              <label className="label">Simple Description</label>
-              <textarea
-                name="description"
-                placeholder="Optional note..."
-                className="input-field"
-                rows={4}
-                defaultValue={description}
-              ></textarea>
-            </fieldset>
-
+             </div>
+            <FormTextArea
+              name="description"
+              control={control}
+              label="Simple Description"
+              placeholder="Optional note about this transaction..."
+              rules={{ required: "Description is required" }}
+            />
             <div className="flex justify-end gap-4 mt-4">
               <button
                 type="button"

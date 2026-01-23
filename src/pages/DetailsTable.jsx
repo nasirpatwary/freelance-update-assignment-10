@@ -6,7 +6,7 @@ const DetailsTable = ({ category, description, date, amount, condition }) => {
   const { categoryTotal } = useCategoryTotal(category);
 
   return (
-    <Container className="my-12">
+    <Container className="py-10">
       <div className="space-y-3 text-center">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
           Transaction Details

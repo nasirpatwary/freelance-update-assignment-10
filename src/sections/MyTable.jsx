@@ -1,10 +1,9 @@
 import TableCart from "./TableCart";
-
 const MyTable = ({ transactions }) => {
   return (
-    <div className="mt-12">
+    <div>
       {transactions.length === 0 ? (
-        <div className="flex flex-col items-center justify-center text-center py-16 space-y-3 bg-gray-50 dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="flex flex-col items-center justify-center text-center space-y-3 bg-gray-50 dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
           <img
             src="https://cdn-icons-png.flaticon.com/512/4076/4076500.png"
             alt="No data"
@@ -23,12 +22,12 @@ const MyTable = ({ transactions }) => {
           <table className="table w-full">
             <thead className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 uppercase text-sm font-semibold">
               <tr>
-                <th className="py-3 px-4 text-left">Type</th>
-                <th className="py-3 px-4 text-left">Category</th>
-                <th className="py-3 px-4 text-left">Amount</th>
-                <th className="py-3 px-4 text-left">Date</th>
-                <th className="py-3 px-4 text-left">Details</th>
-                <th className="py-3 px-4 text-center">Actions</th>
+                <th className="py-3 px-4">Type</th>
+                <th className="py-3 px-4">Category</th>
+                <th className="py-3 px-4">Amount</th>
+                <th className="py-3 px-4">Date</th>
+                <th className="py-3 px-4">Details</th>
+                <th className="py-3 px-4">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">

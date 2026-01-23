@@ -5,14 +5,18 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import PrivateRouter from "../private/PrivateRouter";
-import Reports from "../pages/Reports";
-import MyTransactions from "../pages/MyTransactions";
-import AddTransaction from "../pages/AddTransaction";
 import ErrorPage from "../pages/ErrorPage";
 import DetailsPage from "../pages/DetailsPage";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import DashboarLayout from "../layouts/DashboarLayout";
 import Dashboard from "../pages/dashboard/dashboard";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import BlogPage from "../pages/BlogPage";
+import AddTransaction from "../pages/dashboard/AddTransaction";
+import MyTransactions from "../pages/dashboard/MyTransactions";
+import Financials from "../pages/Financials";
+import TransactionDetails from "../shared/TransactionDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,26 +29,23 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "addTransaction",
-        element: (
-          <PrivateRouter>
-            <AddTransaction />
-          </PrivateRouter>
-        ),
+        path: "about",
+        Component: About,
       },
       {
-        path: "myTransactions",
-        element: (
-          <PrivateRouter>
-            <MyTransactions />
-          </PrivateRouter>
-        ),
+        path: "contact",
+        Component: Contact,
       },
       {
-        path: "reports",
+        path: "blog",
+        Component: BlogPage,
+      },
+
+      {
+        path: "financials",
         element: (
           <PrivateRouter>
-            <Reports />
+            <Financials />
           </PrivateRouter>
         ),
       },
@@ -57,10 +58,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "details/:id",
+        path: "transaction-details/:id",
         element: (
           <PrivateRouter>
-            <DetailsPage />
+            <TransactionDetails />
           </PrivateRouter>
         ),
       },
@@ -74,11 +75,21 @@ const router = createBrowserRouter([
       },
     ],
   },
-   {
+  {
     path: "dashboard",
-    element: <PrivateRouter><DashboarLayout /></PrivateRouter>,
+    element: (
+      <PrivateRouter>
+        <DashboarLayout />
+      </PrivateRouter>
+    ),
     children: [
-      { index: true, Component: Dashboard  },
+      { index: true, Component: Dashboard },
+      { path: "addTransaction", Component: AddTransaction },
+      {
+        path: "details/:id",
+        Component: DetailsPage 
+      },
+      { path: "myTransaction", Component: MyTransactions },
     ],
   },
 ]);

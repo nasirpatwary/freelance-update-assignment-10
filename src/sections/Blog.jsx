@@ -1,7 +1,6 @@
-import React from 'react';
 import { FaArrowRight } from "react-icons/fa6";
-import { Link } from 'react-router'; // Next.js হলে 'next/link' ব্যবহার করুন
 import Container from '../shared/Container';
+import { Link } from "react-router";
 
 const blogs = [
   {
@@ -54,22 +53,16 @@ const Blog = () => {
               Latest From Our <span className="text-primary">Freelance</span> Blog
             </h2>
           </div>
-          <button 
+          <Link 
+            to="/blog" 
             className="flex items-center gap-2 text-lg font-semibold text-primary hover:gap-4 duration-300"
           >
             View All Articles <FaArrowRight />
-          </button>
-          {/* To Do */}
-          {/* <Link 
-            to="/blogs" 
-            className="flex items-center gap-2 text-lg font-semibold text-primary hover:gap-4 duration-300"
-          >
-            View All Articles <FaArrowRight />
-          </Link> */}
+          </Link>
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-6">
           {blogs.map((blog) => (
             <article 
               key={blog.id} 
@@ -95,8 +88,6 @@ const Blog = () => {
                   {blog.date}
                 </p>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary duration-300 line-clamp-2">
-                    {/* To Do */}
-                  {/* <Link to={`/blog/${blog.id}`}>{blog.title}</Link> */}
                   {blog.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 line-clamp-3">
@@ -110,14 +101,6 @@ const Blog = () => {
                     Read Full Story 
                     <FaArrowRight className="-rotate-45 group-hover:rotate-0 duration-300" />
                   </button>
-                  {/* To Do */}
-                  {/* <Link 
-                    to={`/blog/${blog.id}`} 
-                    className="flex items-center gap-2 font-bold text-gray-900 dark:text-white group-hover:text-primary duration-300"
-                  >
-                    Read Full Story 
-                    <FaArrowRight className="-rotate-45 group-hover:rotate-0 duration-300" />
-                  </Link> */}
                 </div>
               </div>
             </article>

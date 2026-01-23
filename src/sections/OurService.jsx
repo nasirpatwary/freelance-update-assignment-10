@@ -128,7 +128,7 @@ const OurService = () => {
               <span className="group">
                 <Link
                   to="/"
-                  className="btn bg-black text-white hover:bg-primary 
+                  className="btn rounded-xl bg-black text-white hover:bg-primary 
                     dark:bg-white dark:text-black border-0 duration-500"
                 >
                   View All Services

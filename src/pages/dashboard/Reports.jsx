@@ -7,9 +7,9 @@ import {
   Legend,
 } from "recharts";
 
-import usePieChart from "../hooks/usePieChart";
-import Container from "../shared/Container";
-import ChartCard from "../sections/ChartCard";
+import usePieChart from "../../hooks/usePieChart";
+import Container from "../../shared/Container";
+import ChartCard from "../../sections/ChartCard";
 const Reports = () => {
   const { charts } = usePieChart();
   return (

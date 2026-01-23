@@ -50,13 +50,13 @@ const TableCart = ({ transaction }) => {
       </td>
       <td className="text-nowrap">
         <Link
-          to={`/details/${_id}`}
+          to={`/dashboard/details/${_id}`}
           className="btn-primary dark:text-gray-200 dark:bg-gray-700"
         >
           View Details
         </Link>
       </td>
-      <td className="text-nowrap flex justify-end items-center gap-12">
+      <td className="text-nowrap flex items-center gap-12">
         <MyModal {...transaction} />
         <button onClick={() => handleDelete(_id)}>
           <RiDeleteBin6Line

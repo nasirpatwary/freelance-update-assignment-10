@@ -1,18 +1,18 @@
-import useGetTransaction from "../hooks/useGetTransaction";
-import MyTable from "../sections/MyTable";
-import Container from "../shared/Container";
-import LoadingSpinner from "../shared/LoadingSpinner";
-import ErrorPage from "./ErrorPage";
+import useGetMyTransaction from "../../hooks/useGetMyTransaction";
+import MyTable from "../../sections/MyTable";
+import Container from "../../shared/Container";
+import LoadingSpinner from "../../shared/LoadingSpinner";
+import ErrorPage from "../ErrorPage";
 
 const MyTransactions = () => {
-  const [transactions, isLoading, isError] = useGetTransaction();
+  const [transactions, isLoading, isError] = useGetMyTransaction();
   if (isLoading) return <LoadingSpinner />;
   if (isError) return <ErrorPage />;
 
   return (
-    <Container className="my-12">
+    <Container className="h-screen py-10">
       <title>My Transactions</title>
-      <div className="text-center space-y-3">
+      <div className="text-center space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
           Complete Transaction History
         </h2>
@@ -21,7 +21,9 @@ const MyTransactions = () => {
           review past activities for easy budgeting and planning.
         </p>
       </div>
-      <MyTable transactions={transactions} />
+     <div className="mt-8">
+       <MyTable transactions={transactions} />
+     </div>
     </Container>
   );
 };

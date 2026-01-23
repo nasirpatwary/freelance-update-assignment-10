@@ -88,7 +88,7 @@ const Hero = () => {
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                     <Link
                       to="/"
-                      className="btn bg-black text-white hover:bg-primary border-0 duration-500 
+                      className="btn rounded-xl bg-black text-white hover:bg-primary border-0 duration-500 
                       dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black 
                       flex items-center gap-2 group"
                     >
@@ -96,14 +96,14 @@ const Hero = () => {
                       <FaArrowRightLong className="translate-x-0 group-hover:translate-x-2 duration-500" />
                     </Link>
 
-                    <button
-                      className="btn btn-outline border-gray-300 text-gray-700 hover:bg-black hover:text-white 
+                    <a target="_blank" href="https://www.youtube.com/watch?v=A9Xq3FGjpZA"
+                      className="btn rounded-xl btn-outline border-gray-300 text-gray-700 hover:bg-black hover:text-white 
                       dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white dark:hover:text-black 
                       duration-500 font-semibold"
                     >
                       <MdSlowMotionVideo size={22} className="mr-2" /> Watch
                       Demo
-                    </button>
+                    </a>
                   </div>
                 </div>
 

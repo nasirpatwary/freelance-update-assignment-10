@@ -45,7 +45,7 @@ export const FormInput = ({
 
 // ২. Reusable Select Option
 export const FormSelect = ({ name, control, label, options, rules }) => (
-  <div className="form-control w-full">
+  <div className="form-control flex flex-col w-full">
     <label className="label mb-1">
       <span className="label-text text-gray-700 dark:text-gray-300">
         {label}
@@ -59,7 +59,7 @@ export const FormSelect = ({ name, control, label, options, rules }) => (
         <>
           <select
             {...field}
-            className={`select outline-0 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 focus:border-primary focus:outline-none ${
+            className={`select outline-0 w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 focus:border-primary focus:outline-none ${
               error ? "border-red-500" : ""
             }`}
           >

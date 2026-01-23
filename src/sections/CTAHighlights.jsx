@@ -26,7 +26,7 @@ const CTAHighlights = () => (
       </p>
       <Link
         to="/register"
-        className="btn bg-black text-white mt-3 border-0 duration-500 
+        className="btn rounded-xl bg-black text-white mt-3 border-0 duration-500 
         dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black 
       "
       >

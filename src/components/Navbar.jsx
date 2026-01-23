@@ -26,21 +26,30 @@ const Navbar = () => {
       >
         Home <span className="nav"></span>
       </NavLink>
-
       <NavLink
-        to="/addTransaction"
+        to="/About"
         className="group relative text-gray-700 dark:text-gray-200"
       >
-        AddTransaction <span className="nav"></span>
+        About <span className="nav"></span>
       </NavLink>
-
       <NavLink
-        to="/myTransactions"
+        to="/contact"
         className="group relative text-gray-700 dark:text-gray-200"
       >
-        MyTransactions <span className="nav"></span>
+        Contact <span className="nav"></span>
       </NavLink>
-
+      <NavLink
+        to="/blog"
+        className="group relative text-gray-700 dark:text-gray-200"
+      >
+        Blogs <span className="nav"></span>
+      </NavLink>
+      <NavLink
+        to="/financials"
+        className="group relative text-gray-700 dark:text-gray-200"
+      >
+        Financials <span className="nav"></span>
+      </NavLink>
       {user && (
         <NavLink
           to="/dashboard"

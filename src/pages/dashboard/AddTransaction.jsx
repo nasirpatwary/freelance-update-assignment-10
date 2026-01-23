@@ -2,18 +2,18 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
-import useAuth from "../hooks/useAuth";
-import usePostTransaction from "../hooks/usePostTransaction";
-import Container from "../shared/Container";
+import useAuth from "../../hooks/useAuth";
+import usePostTransaction from "../../hooks/usePostTransaction";
+import Container from "../../shared/Container";
 import {
   FormDatePicker,
   FormInput,
   FormRadio,
   FormSelect,
   FormTextArea,
-} from "../shared/forms/FormElements";
+} from "../../shared/forms/FormElements";
 
-const TransactionForm = () => {
+const AddTransaction = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [mutateAsync, isPending] = usePostTransaction();
@@ -38,7 +38,7 @@ const TransactionForm = () => {
   const onSubmit = async (data) => {
     try {
       await mutateAsync(data);
-      navigate("/myTransactions");
+      navigate("/dashboard/myTransactions");
     } catch (err) {
       toast.error(err.message);
     }
@@ -48,7 +48,7 @@ const TransactionForm = () => {
     <>
       <title>Add Transaction | Finance Tracker</title>
 
-      <Container className="max-w-3xl shadow-xl rounded-3xl my-12 bg-white dark:bg-gray-800 transition-all border border-gray-100 dark:border-gray-700">
+      <Container className="max-w-4xl shadow-xl rounded-b-3xl bg-white dark:bg-gray-800 transition-all border border-gray-100 dark:border-gray-700">
         {/* Header Section */}
         <div className="text-center space-y-3 pt-8 px-5">
           <h3 className="text-2xl md:text-4xl font-black text-gray-900 dark:text-gray-100">
@@ -72,7 +72,7 @@ const TransactionForm = () => {
               control={control}
               placeholder="Business Title"
               rules={{ required: "Title is required" }}
-            /> 
+            />
             <FormRadio
               name="condition"
               control={control}
@@ -83,7 +83,7 @@ const TransactionForm = () => {
               ]}
               rules={{ required: "Income / Expense" }}
             />
-    
+
             <FormInput
               name="img"
               label="Image URL"
@@ -91,7 +91,7 @@ const TransactionForm = () => {
               placeholder="Your Image URL..."
               rules={{ required: "Image URL is required" }}
             />
-             <FormSelect
+            <FormSelect
               name="location"
               control={control}
               label="Location"
@@ -124,7 +124,7 @@ const TransactionForm = () => {
                 min: { value: 0.1, message: "Min amount 0.1" },
               }}
             />
-             {/* Category Select */}
+            {/* Category Select */}
             <FormSelect
               name="category"
               control={control}
@@ -211,4 +211,4 @@ const TransactionForm = () => {
   );
 };
 
-export default TransactionForm;
+export default AddTransaction;

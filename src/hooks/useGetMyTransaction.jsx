@@ -1,20 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
-const useDeatils = (id) => {
+
+const useGetMyTransaction = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
   const {
-    data: transactions = {},
+    data: transactions = [],
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["transactions", id],
+    queryKey: ["transactions", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/transactions/${id}`
-      );
+      const { data } = await axiosSecure.get(`/transactions/${user.email}`);
       return data;
     },
   });
   return [transactions, isLoading, isError];
 };
 
-export default useDeatils;
+export default useGetMyTransaction;

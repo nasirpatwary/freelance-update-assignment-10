@@ -2,7 +2,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaTwitter,
-  FaLinkedinIn,
+  FaLinkedinIn
 } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { PiCity } from "react-icons/pi";
@@ -86,18 +86,18 @@ const Footer = () => {
               only and should not be considered financial advice.
             </p>
             <div className="flex gap-2 mt-6">
-              <p className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
+              <a target="_blank" href="https://www.facebook.com" className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
                 <FaFacebookF />
-              </p>
-              <p className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
+              </a>
+              <a target="_blank" href="https://x.com" className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
                 <FaTwitter />
-              </p>
-              <p className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/nasir22" className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
                 <FaLinkedinIn />
-              </p>
-              <p className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
+              </a>
+              <a target="_blank" href="https://www.instagram.com" className="flex hover:bg-[#8659c0] hover:border-[#8659c0] delay-300 duration-700 transition-all cursor-pointer text-gray-400 border-gray-700 border-2 items-center justify-center rounded-full shadow-bg-primary size-8">
                 <FaInstagram />
-              </p>
+              </a>
             </div>
           </nav>
         </div>
