@@ -9,7 +9,7 @@ const {user} = useAuth()
 const { data: users = [], isLoading, isError } = useQuery({
    queryKey: ["users", user?.email],
    queryFn: async () => {
-      const { data } = await axiosSecure.get(`/users/${user.email}`)
+      const { data } = await axiosSecure.get(`/users/exclude/${user.email}`)
       return data
    }
 })
@@ -21,7 +21,7 @@ export const useModifyRole = () =>{
    const queryClient = useQueryClient()
    const mutation = useMutation({
       mutationFn: async ({id, ...updateDoc}) => {
-         const {data} = await axiosSecure.patch(`/users/${id}/role`, updateDoc)
+         const {data} = await axiosSecure.patch(`/users/role/${id}`, updateDoc)
          return data
       },
       onSuccess: (data)=>{
@@ -40,7 +40,7 @@ export const useRole = () => {
     queryKey: ['user-role', user?.email],
     enabled: !loading && !!user?.email,
     queryFn: async () => {
-      const {data} = await axiosSecure.get(`/users/${user.email}/role`);
+      const {data} = await axiosSecure.get(`/users/role/${user.email}`);
       return data.role;
     }
     })   

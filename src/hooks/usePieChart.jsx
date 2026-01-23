@@ -8,9 +8,9 @@ const usePieChart = () => {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["category-summary"],
+    queryKey: ["stats-summary"],
     queryFn: async () => {
-      const { data } = await axioSecure.get("/reports/category-summary");
+      const { data } = await axioSecure.get("/stats/summary");
       return data;
     },
   });

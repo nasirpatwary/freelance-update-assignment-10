@@ -6,7 +6,7 @@ const useCategoryTotal = (category) => {
   const { data: categoryTotal = 0 } = useQuery({
     queryKey: ["transactions", category],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/category-total/${category}`);
+      const { data } = await axiosSecure.get(`/stats/reports/${category}`);
       return data;
     },
     enabled: !!category,
