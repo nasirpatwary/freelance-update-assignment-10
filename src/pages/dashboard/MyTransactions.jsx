@@ -21,7 +21,7 @@ const MyTransactions = () => {
           review past activities for easy budgeting and planning.
         </p>
       </div>
-     <div className="mt-8">
+     <div className="mt-8 max-w-5xl mx-auto">
        <MyTable transactions={transactions} />
      </div>
     </Container>

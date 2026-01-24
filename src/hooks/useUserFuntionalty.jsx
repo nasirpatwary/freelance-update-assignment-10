@@ -24,8 +24,7 @@ export const useModifyRole = () =>{
          const {data} = await axiosSecure.patch(`/users/role/${id}`, updateDoc)
          return data
       },
-      onSuccess: (data)=>{
-         toast.success(`modify ${data.role} successfully!`)
+      onSuccess: ()=>{
          queryClient.invalidateQueries({queryKey: ["users"]})
       },
       onError: (error) => toast.error(error.message)

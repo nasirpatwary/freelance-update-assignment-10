@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import LoadingSpinner from "../shared/LoadingSpinner";
-import ErrorPage from "./ErrorPage";
+import LoadingSpinner from "../../shared/LoadingSpinner";
+import ErrorPage from "../ErrorPage";
+import useDetailsTransaction from "../../hooks/useDetailsTransaction";
 import DetailsTable from "./DetailsTable";
-import useDetailsTransaction from "../hooks/useDetailsTransaction";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const DetailsPage = () => {
 
   return (
     <>
-    <title>Finance || Details{id}</title>
+      <title>Finance || Details{id}</title>
       <DetailsTable {...transactions} />
     </>
   );

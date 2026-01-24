@@ -86,11 +86,11 @@ const DashboarLayout = () => {
                   <Link
                     to="/dashboard/reports"
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                    data-tip="Reports"
+                    data-tip="SystemAnalytices"
                   >
                     <FaChartLine size={20} />
 
-                    <span className="is-drawer-close:hidden">Reports</span>
+                    <span className="is-drawer-close:hidden">SystemAnalytices</span>
                   </Link>
                 </li>
                 <li>

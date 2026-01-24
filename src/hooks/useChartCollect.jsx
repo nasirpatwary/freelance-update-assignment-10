@@ -4,7 +4,7 @@ import useAxiosSecure from './useAxiosSecure';
 const useChartCollect = () => {
     const axiosSecure = useAxiosSecure()
     const {data = {}} = useQuery({
-        queryKey: ["chart-collection"],
+        queryKey: ["chartcollection"],
         queryFn: async () => {
             const { data } = await axiosSecure.get("/chartcollections");
             return data

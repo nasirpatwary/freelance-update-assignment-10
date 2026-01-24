@@ -6,7 +6,7 @@ import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import PrivateRouter from "../private/PrivateRouter";
 import ErrorPage from "../pages/ErrorPage";
-import DetailsPage from "../pages/DetailsPage";
+import DetailsPage from "../pages/dashboard/DetailsPage";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import DashboarLayout from "../layouts/DashboarLayout";
 import Dashboard from "../pages/dashboard/dashboard";
@@ -18,8 +18,8 @@ import MyTransactions from "../pages/dashboard/MyTransactions";
 import Financials from "../pages/Financials";
 import TransactionDetails from "../shared/TransactionDetails";
 import PrivateAdmin from "../private/PrivateAdmin";
-import Reports from "../pages/dashboard/Reports";
 import AllUsers from "../pages/dashboard/users/AllUsers";
+import SystemAnalytices from "../pages/dashboard/SystemAnalytics";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -90,15 +90,29 @@ const router = createBrowserRouter([
       { path: "addTransaction", Component: AddTransaction },
       {
         path: "details/:id",
-        Component: DetailsPage 
+        Component: DetailsPage,
       },
       {
         path: "profile",
-        Component: Profile 
+        Component: Profile,
       },
       { path: "myTransaction", Component: MyTransactions },
-      { path: "reports", element: <PrivateAdmin><Reports /></PrivateAdmin> },
-      { path: "users", element: <PrivateAdmin><AllUsers /></PrivateAdmin> },
+      {
+        path: "reports",
+        element: (
+          <PrivateAdmin>
+            <SystemAnalytices />
+          </PrivateAdmin>
+        ),
+      },
+      {
+        path: "users",
+        element: (
+          <PrivateAdmin>
+            <AllUsers />
+          </PrivateAdmin>
+        ),
+      },
     ],
   },
 ]);

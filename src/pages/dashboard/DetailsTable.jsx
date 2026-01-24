@@ -1,10 +1,10 @@
 import { format } from "date-fns";
-import useCategoryTotal from "../hooks/useCategoryTotal";
-import Container from "../shared/Container";
+import useCategoryTotal from "../../hooks/useCategoryTotal";
+import Container from "../../shared/Container";
 
 const DetailsTable = ({ category, description, date, amount, condition }) => {
   const { categoryTotal } = useCategoryTotal(category);
-
+  
   return (
     <Container className="py-10">
       <div className="space-y-3 text-center">
@@ -55,7 +55,7 @@ const DetailsTable = ({ category, description, date, amount, condition }) => {
               <th className="p-4 font-medium bg-gray-50 dark:bg-gray-900">
                 Total Amount
               </th>
-              <td className="p-4">${categoryTotal.totalAmount}</td>
+              <td className="p-4">${categoryTotal}</td>
             </tr>
           </tbody>
         </table>

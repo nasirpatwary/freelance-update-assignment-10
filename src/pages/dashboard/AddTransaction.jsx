@@ -38,7 +38,7 @@ const AddTransaction = () => {
   const onSubmit = async (data) => {
     try {
       await mutateAsync(data);
-      navigate("/dashboard/myTransactions");
+      navigate("/dashboard/myTransaction");
     } catch (err) {
       toast.error(err.message);
     }
