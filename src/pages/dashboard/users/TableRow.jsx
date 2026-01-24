@@ -19,9 +19,9 @@ const TableRow = ({ email, name, image, role, _id }) => {
   };
 
   return (
-    <tr className="group hover:bg-slate-50 dark:hover:bg-indigo-500/5 transition-all">
+    <tr className="group dark:hover:bg-indigo-500/5 transition-all">
       {/* Avatar & Name */}
-      <td className="pl-10 py-5">
+      <td>
         <div className="flex items-center gap-4">
           <div className="relative shrink-0">
             <img
@@ -32,17 +32,17 @@ const TableRow = ({ email, name, image, role, _id }) => {
             />
             <div className="absolute -bottom-1 -right-1 size-3.5 bg-emerald-500 border-2 border-white dark:border-gray-950 rounded-full shadow-sm"></div>
           </div>
-          <span className="font-bold text-slate-700 dark:text-gray-200 text-[15px]">{name}</span>
+          <span className="truncate font-bold text-slate-700 dark:text-gray-200 text-[15px]">{name}</span>
         </div>
       </td>
 
       {/* Email */}
-      <td className="text-slate-500 dark:text-gray-400 font-medium text-sm">
+      <td className="text-nowrap text-slate-500 dark:text-gray-400 font-medium text-sm">
         {email}
       </td>
 
       {/* Role Badge */}
-      <td className="text-center">
+      <td className="text-nowrap text-center">
         <span className={clsx(
           "px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border shadow-sm",
           {
@@ -55,8 +55,8 @@ const TableRow = ({ email, name, image, role, _id }) => {
       </td>
 
       {/* Modify Action */}
-      <td className="pr-10">
-        <form onChange={handleSubmit(onSubmit)} className="max-w-[140px] ml-auto">
+      <td className="text-nowrap">
+        <form onChange={handleSubmit(onSubmit)}>
           <FormSelect
             id="role"
             name="role"

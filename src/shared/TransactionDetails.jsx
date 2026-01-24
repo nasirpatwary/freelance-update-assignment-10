@@ -13,13 +13,14 @@ import useDetailsTransaction from "../hooks/useDetailsTransaction";
 import ErrorPage from "../pages/ErrorPage";
 import FinancialCard from "./FinancialCard";
 import { Rating } from "@smastrom/react-rating";
+import DetailsSkeleton from "./DetailsSkeleton";
 
 const TransactionDetails = () => {
   const { id } = useParams();
   const [transactions, isLoading, isError] = useDetailsTransaction(id)
   const {image, title, amount, category, description, rating, location, status } = transactions || {}
   
-  if (isLoading) return <LoadingSpinner />
+  if (isLoading) return <DetailsSkeleton />
   if(isError) return <ErrorPage />
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 py-10">
