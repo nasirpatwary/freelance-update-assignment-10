@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 
 const OurService = () => {
   return (
-    <>
+    <section id="services">
       <Container>
         <div className="text-center">
           <p
@@ -156,7 +156,7 @@ const OurService = () => {
           Proven Growth Results &nbsp; • &nbsp; 🔒 Secure Data Handling
         </Marquee>
       </div>
-    </>
+    </section>
   );
 };
 

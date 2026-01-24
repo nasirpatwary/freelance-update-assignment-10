@@ -80,7 +80,7 @@ const SystemAnalytices = () => {
                   </defs>
                   <Bar
                     dataKey="totalAmount"
-                    barSize={15}
+                    barSize={1}
                     fill="#A288FD"
                     radius={[6, 6, 0, 0]}
                   />

@@ -9,6 +9,11 @@
   --color-secondary: #A288FD;
   --color-success: #C0BBFE;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 * :focus{
   outline: none;
 }

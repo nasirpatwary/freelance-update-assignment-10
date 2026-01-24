@@ -42,20 +42,20 @@ const Footer = () => {
           <nav className="space-y-3 lg:col-span-2 col-span-2">
             <h6 className="text-white/80 font-bold text-2xl">Quick Links</h6>
             <ul className="text-gray-400 flex flex-col space-y-3">
-              <a className="link link-hover duration-700 delay-300 hover:text-primary">
+              <a href="/" className="link link-hover duration-700 delay-300 hover:text-primary">
                 Home
               </a>
-              <a className="link link-hover duration-700 delay-300 hover:text-primary">
+              <a href="/blog" className="link link-hover duration-700 delay-300 hover:text-primary">
                 Blog
               </a>
-              <a className="link link-hover duration-700 delay-300 hover:text-primary">
+              <a href="/about" className="link link-hover duration-700 delay-300 hover:text-primary">
                 About Us
               </a>
-              <a className="link link-hover duration-700 delay-300 hover:text-primary">
+              <a href="#services" className="link link-hover duration-700 delay-300 hover:text-primary">
                 Services
               </a>
-              <a className="link link-hover duration-700 delay-300 hover:text-primary">
-                Pricing
+              <a href="#newsletter" className="link link-hover duration-700 delay-300 hover:text-primary">
+                Newsletter
               </a>
             </ul>
           </nav>

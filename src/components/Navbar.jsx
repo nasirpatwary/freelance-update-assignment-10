@@ -19,7 +19,7 @@ const Navbar = () => {
         Home <span className="nav"></span>
       </NavLink>
       <NavLink
-        to="/About"
+        to="/about"
         className="group relative text-gray-700 dark:text-gray-200"
       >
         About <span className="nav"></span>

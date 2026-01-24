@@ -18,7 +18,7 @@ const Newsletter = () => {
     }
   };
   return (
-    <>
+    <section id="newsletter">
       <Container>
         <div className="relative overflow-hidden bg-primary/10 dark:bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-16">
           {/* Decorative Background Circles */}
@@ -93,7 +93,7 @@ const Newsletter = () => {
           </div>
         </div>
       </Container>
-    </>
+    </section>
   );
 };
 
