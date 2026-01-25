@@ -1,4 +1,4 @@
-# 🎓 ScholarStream – Online Learning Platform
+# 🎓 Financial – Secure your retirement life with ease 
 
 ScholarStream is a modern, responsive educational platform built with React, designed to connect students with top-tier courses and resources.
 
