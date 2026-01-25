@@ -41,4 +41,4 @@ Follow these steps to get this project running on your local machine:
 
 1. **Clone the project:**
    ```bash
-   git clone https://github.com/nasirpatwary/scholar-stream-client
+   git clone: https://github.com/nasirpatwary/freelance-client-update-assignment-10
