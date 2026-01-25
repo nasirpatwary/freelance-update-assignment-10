@@ -8,7 +8,7 @@ ScholarStream is a modern, responsive educational platform built with React, des
 
 ### 📸 Project Interface
 <p align="center">
-  <img src="Screenshot.png" width="100%" alt="ScholarStream Home" />
+  <img src="Screenshot(2).png" width="100%" alt="ScholarStream Home" />
 </p>
 
 ---
